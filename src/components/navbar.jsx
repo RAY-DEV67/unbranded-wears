@@ -78,10 +78,10 @@ export function Navbar() {
 
   return (
     <div className="flex flex-col ">
-      <div className="fixed p-[1rem] w-[100%] navbar bg-white z-10">
+      <div className="fixed px-[1rem] w-[100%] navbar bg-white z-10">
         <div className="flex items-center justify-between">
           <Link to="/">
-            <img src={logo} alt="logo" className="w-[20vw]"/>
+            <img src={logo} alt="logo" className="w-[40%]"/>
           </Link>
           <div className="flex justify-between">
            <Link to="/Profile">

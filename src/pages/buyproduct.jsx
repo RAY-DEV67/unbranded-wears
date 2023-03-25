@@ -10,6 +10,7 @@ import { auth } from "../config/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { SetAddCart, AddCart } from "../App";
 import { TopCard } from "../components/topcard";
+import LoadingSpinner from "../components/spinner";
 
 
 export function BuyProduct() {
@@ -140,11 +141,23 @@ console.log(error)
     }).format(value);
   };
 
+  const images = [buyProduct?.images, buyProduct?.images2, buyProduct?.images3]
+  const [index, setindex] = useState(0);
+  
+  useEffect(() => {
+      const timer = setInterval(() => {
+          setindex((index + 1) % images.length)
+      }, 3000)
+  
+      return () => clearInterval(timer)
+  }, [index, images.length]);
+
   return (
     <div className="lg:mt-[7rem] productfont">
       {/* <Topnav /> */}
-      <div className="flex justify-center relative pt-[120px] mx-[0.5rem] lg:-z-10">
-      <img alt="img2" src={buyProduct?.images} className="object-contain topcard rounded-[1rem]" />
+      {buyProduct ? <div>
+        <div className="flex justify-center relative pt-[120px] mx-[0.5rem] lg:-z-10">
+      <img alt="img2" src={images[index]} className="object-contain topcard rounded-[1rem]" />
          </div>   
 
 
@@ -182,11 +195,12 @@ console.log(error)
           )}
         </div>
              </div>
+      </div> : <div className="pt-[100px] flex flex-col items-center"><LoadingSpinner/></div>}
 
   
 
-      <h2 className="mt-[2rem] mb-[0.5rem] text-2xl ml-[1rem]">Similar Products</h2>
-
+      <h2 className="mt-[2rem] mb-[1rem] text-2xl ml-[1rem]">Similar Products</h2>
+      <div className="flex flex-wrap gap-3 justify-center mb-[1rem]">
       {clothsList.map((post, index) => {
             return (
               <div
@@ -200,6 +214,7 @@ console.log(error)
               </div>
             );
           })}
+      </div>
       <Footer />
     </div>
   );

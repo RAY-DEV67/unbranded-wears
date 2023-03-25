@@ -1,3 +1,6 @@
+.App{
+overflow-x: hidden;
+}
 .loading-spinner {
     width: 30px;
     height: 30px;
@@ -53,7 +56,7 @@
       transform: rotate(360deg);
     }
   }
-  .navbar {
+  .navbar, .footer {
     box-shadow: 0px 0px 7px;
     /* background-color: rgb(10, 10, 10); */
     /* background-color: #b76e79 */
@@ -65,4 +68,18 @@
     background-repeat: no-repeat;
     background-position: 50% 60%;
 
+  }
+  @keyframes zoom-in-fade{
+    0%{
+      transform: scale(1);
+      opacity: 1;
+    }
+    100%{
+      transform: scale(1.1);
+      opacity: 0;
+    }
+  }
+
+  .animate-zoom-in-fade{
+animation: zoom-in-fade 3s ease-in-out infinite;
   }
