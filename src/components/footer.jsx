@@ -1,5 +1,5 @@
 export function Footer() {
-    return ( <div className="bg-white text-black rounded-t-[20px] footer py-[1rem] text-white">
+    return ( <div className="bg-white text-black rounded-t-[20px] footer py-[1rem]">
         <div className="mx-[1rem]">
         <p className="text-2xl mb-[1rem] text-[#deab24]">Contact Us</p>
         <div className="flex">

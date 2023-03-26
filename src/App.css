@@ -56,7 +56,12 @@ overflow-x: hidden;
       transform: rotate(360deg);
     }
   }
-  .navbar, .footer {
+  .navbar {
+    box-shadow: 0px 0px 7px;
+    /* background-color: rgb(10, 10, 10); */
+    /* background-color: #b76e79 */
+  }
+  .footer {
     box-shadow: 0px 0px 7px;
     /* background-color: rgb(10, 10, 10); */
     /* background-color: #b76e79 */
