@@ -88,7 +88,7 @@ export function LandingPage() {
     <div>
       <div className="relative text-left border-b border-[#deab24] rounded-b-[20px] pt-[16%]">
         <img src={images[index]} alt="Fusion Grandeur" className="h-[400px] w-[100vw] animate-zoom-in-fade rounded-b-[20px]"/>
-        <div className="flex flex-col items-center justify-center w-[100vw] h-[400px] absolute top-[16%] rounded-b-[20px] overLanding">
+        <div className="flex flex-col items-center justify-center w-[100vw] h-[405px] absolute top-[16%] mt-[-1.3rem] rounded-b-[20px] overLanding">
           <p className="mx-[1rem] text-3xl text-white">BE ELEGANT</p>
           <p className="mx-[1rem] text-4xl text-[#deab24] font-bold">WEAR FUSION</p>
         </div>
