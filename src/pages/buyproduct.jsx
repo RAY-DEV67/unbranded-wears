@@ -153,7 +153,7 @@ console.log(error)
   }, [index, images.length]);
 
   return (
-    <div className="lg:mt-[7rem] productfont">
+    <div className="productfont lg:absolute lg:left-[35%] lg:top-[12%] lg:w-[60%]">
       {/* <Topnav /> */}
       {buyProduct ? <div>
         <div className="flex justify-center relative pt-[120px] mx-[0.5rem] lg:-z-10">

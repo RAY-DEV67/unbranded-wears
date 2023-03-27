@@ -110,7 +110,7 @@ export function CheckOut() {
   console.log(image)
 
   return (
-    <div className="pt-[110px]">
+    <div className="pt-[90px] lg:absolute lg:left-[35%] lg:top-[12%] lg:w-[60%]">
       {user ? (
         <div>
          <p className="text-center pt-[1rem] text-2xl">Check-Out</p>
@@ -120,7 +120,7 @@ export function CheckOut() {
           <div className="flex flex-col items-center">
             <div className="form w-[95%] mb-[1rem]">
               <p className="text-left ml-[1rem] mt-[1rem]">Your Order</p>
-              <div className="lg:absolute lg:top-[13%] lg:left-[40%] lg:w-[59vw]  lg:z-[-1] mb-[1rem]">
+              <div className="mb-[1rem]">
                 <div className="flex flex-wrap gap-3 justify-center">
                   <p className="w-[100%] flex flex-col items-center loaderContainer">
                     {loading ? <LoadingSpinner/> : ""}

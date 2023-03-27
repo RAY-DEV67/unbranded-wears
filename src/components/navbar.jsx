@@ -9,6 +9,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { signInWithPopup, signOut } from "firebase/auth";
 import { Saved, SetSaved, LoadCart, AddCart } from "../App";
 import { useNavigate, useParams } from "react-router-dom";
+import { Profile } from "../pages/profile";
 
 export function Navbar() {
 
@@ -78,12 +79,17 @@ export function Navbar() {
 
   return (
     <div className="flex flex-col ">
+      <div className="hidden lg:block lg:absolute lg:w-[30%] ">
+        <Profile/>
+      </div>
       <div className="fixed px-[1rem] w-[100%] navbar bg-white z-10">
         <div className="flex items-center justify-between">
-          <Link to="/">
-            <img src={logo} alt="logo" className="w-[40%]"/>
+          <div className="lg:w-[100vw] lg:flex lg:flex-col lg:items-center">
+            <Link to="/">
+            <img src={logo} alt="logo" className="w-[40%] lg:w-[300px]"/>
           </Link>
-          <div className="flex justify-between">
+          </div>
+          <div className="flex justify-between lg:hidden">
            <Link to="/Profile">
            <svg
               viewBox="0 0 24 24"

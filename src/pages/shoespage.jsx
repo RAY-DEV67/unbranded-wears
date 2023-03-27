@@ -76,7 +76,7 @@ export function ShoesPage() {
  
   return (
     <div>
-      <div className="lg:absolute lg:top-[13%] pt-[70px] lg:left-[40%] lg:z-[-1]">
+      <div className="lg:absolute lg:top-[13%] pt-[70px] lg:left-[35%] lg:w-[60%] lg:z-[-1]">
       <p className="mt-[rem] font-bold text-2xl text-center border-y border-[#deab24] py-[1rem]">Fusion Shoes</p>
         <Search />
 

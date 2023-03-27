@@ -31,7 +31,7 @@ function App() {
   const [saved, setsaved] = useState([]);
 
   return (
-    <div className="App">
+    <div className="App bodyFont">
       <ShowCart.Provider value={showcart}>
         <SetShowCart.Provider value={setshowcart}>
           <SetLoadCart.Provider value={setloadCart}>

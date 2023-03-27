@@ -74,7 +74,7 @@ export function Cart() {
   return (
     <div className="pt-[80px]">
       {user ? (
-        <div className="lg:absolute lg:top-[13%] lg:left-[40%] lg:w-[59vw]  lg:z-[-1]">
+        <div className="lg:absolute lg:left-[35%] lg:top-[12%] lg:w-[60%]">
           <p className="p-[1rem] pageHeader text-2xl text-center">Cart</p>
           <div className="flex flex-wrap gap-3 justify-center">
             <p className="w-[100%] flex flex-col items-center loaderContainer">
@@ -113,7 +113,7 @@ export function Cart() {
               </Link>
             </div>
           )}
-          <p className="text-white text-center bg-[#deab24] absolute text-[10px] w-[4%] left-[93%] top-[3%] z-20 rounded-full">
+          <p className="text-white lg:hidden text-center bg-[#deab24] absolute text-[10px] w-[4%] left-[93%] top-[3%] z-20 rounded-full">
             {saved.length}
           </p>
         </div>

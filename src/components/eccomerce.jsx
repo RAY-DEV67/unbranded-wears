@@ -63,7 +63,7 @@ import {
     return (
       <div className="flex flex-col items-center">
         <div className="flex flex-col items-center">
-        <div className="border-y border-[#deab24] lg:h-[190px] w-[90vw] flex rounded-[10px]">
+        <div className="border-y border-[#deab24] lg:h-[190px] w-[90vw] lg:w-[100%] flex rounded-[10px]">
           <div className="w-[40%]">
             <img
               src={post.images}

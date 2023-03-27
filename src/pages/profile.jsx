@@ -92,7 +92,7 @@ export function Profile() {
             <div className="border login-page w-[90%] pb-[1rem] rounded-[10px]">
               <div className="flex flex-col items-center justify-center py-[1rem] bg-[#deab24] font-bold text-white rounded-t-[10px]">
                 {/* <img src={logo} alt="Logo" className="w-[25vw] " /> */}
-                <p className="mt-[0.5rem]">Promoting Natural Beauty</p>
+                <p className="mt-[0.5rem]">BE ELEGANT, WEAR FUSION</p>
               </div>
               <p className="mt-[2rem] px-[1rem] text-[2rem] text-center mb-[0.5rem] text-bolder">
                 Login

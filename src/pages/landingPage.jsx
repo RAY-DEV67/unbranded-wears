@@ -85,12 +85,12 @@ export function LandingPage() {
   }, [index, images.length]);
 
   return (
-    <div>
-      <div className="relative text-left border-b border-[#deab24] rounded-b-[20px] pt-[16%]">
-        <img src={images[index]} alt="Fusion Grandeur" className="h-[400px] w-[100vw] animate-zoom-in-fade rounded-b-[20px]"/>
-        <div className="flex flex-col items-center justify-center w-[100vw] h-[415px] absolute top-[16%] mt-[-1.3rem] rounded-b-[20px] overLanding">
-          <p className="mx-[1rem] text-3xl text-white">BE ELEGANT</p>
-          <p className="mx-[1rem] text-4xl text-[#deab24] font-bold">WEAR FUSION</p>
+    <div className="lg:absolute lg:left-[35%] lg:top-[12%] lg:w-[60%]">
+      <div className="relative text-left border-b border-[#deab24] rounded-b-[20px] pt-[16%] lg:pt-[8%] lg:top-[25%]">
+        <img src={images[index]} alt="Fusion Grandeur" className="h-[400px] w-[100%] object-cover animate-zoom-in-fade rounded-b-[20px]"/>
+        <div className="flex flex-col items-center justify-center w-[100vw] lg:w-[60vw] h-[88.5%] absolute top-[16%] mt-[-1.3rem] rounded-b-[20px] overLanding">
+          <p className="mx-[1rem] text-3xl text-white headingFont">BE ELEGANT</p>
+          <p className="mx-[1rem] text-4xl text-[#deab24] headingFont font-bold">WEAR FUSION</p>
         </div>
       </div>
       <Search />

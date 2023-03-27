@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
     return (
       <div className="flex flex-col items-center">
         <div className="flex flex-col items-center w-[100%] mt-[0.5rem] productfont">
-        <div className="border-y border-[#deab24] w-[80vw] lg:h-[190px] flex rounded-[10px]">
+        <div className="border-y border-[#deab24] w-[80vw] lg:w-[100%] lg:h-[190px] flex rounded-[10px]">
           <div className="w-[40%]">
             <img
               src={post.images}

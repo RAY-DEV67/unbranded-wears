@@ -88,3 +88,9 @@ overflow-x: hidden;
   .animate-zoom-in-fade{
 animation: zoom-in-fade 3s ease-in-out infinite;
   }
+  .bodyFont{
+    font-family: 'Fira Sans', sans-serif;
+  }
+  .headingFont{
+    font-family: 'Righteous', cursive;
+  }
