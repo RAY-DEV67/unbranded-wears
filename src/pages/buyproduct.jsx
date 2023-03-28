@@ -141,23 +141,23 @@ console.log(error)
     }).format(value);
   };
 
-  const images = [buyProduct?.images, buyProduct?.images2, buyProduct?.images3]
-  const [index, setindex] = useState(0);
+  // const images = [buyProduct?.image, buyProduct?.image, buyProduct?.images]
+  // const [index, setindex] = useState(0);
   
-  useEffect(() => {
-      const timer = setInterval(() => {
-          setindex((index + 1) % images.length)
-      }, 3000)
+  // useEffect(() => {
+  //     const timer = setInterval(() => {
+  //         setindex((index + 1) % images.length)
+  //     }, 3000)
   
-      return () => clearInterval(timer)
-  }, [index, images.length]);
+  //     return () => clearInterval(timer)
+  // }, [index, images.length]);
 
   return (
     <div className="productfont lg:absolute lg:left-[35%] lg:top-[12%] lg:w-[60%]">
       {/* <Topnav /> */}
       {buyProduct ? <div>
         <div className="flex justify-center relative pt-[120px] mx-[0.5rem] lg:-z-10">
-      <img alt="img2" src={images[index]} className="object-contain topcard rounded-[1rem]" />
+      <img alt="img2" src={buyProduct?.images} className="object-contain topcard rounded-[1rem]" />
          </div>   
 
 
@@ -205,10 +205,8 @@ console.log(error)
             return (
               <div
               key={index}
-              onClick={() => {
-                navigate(`/Buy/Products/${post.category}/${post.id}`)
-              }}
-              className="sm:w-[85vw] lg:w-[90%]"
+          
+              className=""
             >
                 <TopCard post={post} />
               </div>

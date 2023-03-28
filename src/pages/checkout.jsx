@@ -7,7 +7,7 @@ import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import LoadingSpinner from "../components/spinner";
 import { storage } from "../config/firebase";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { ProductsCard } from "../components/productsCard";
 
 export function CheckOut() {
@@ -22,12 +22,14 @@ export function CheckOut() {
   const [sum, setsum] = useState(0);
   const [product, setproduct] = useState([]);
   const [productOrder, setproductOrder] = useState("");
-
+  const [errors, seterrors] = useState("");
+  const { id } = useParams();
   console.log(product)
 
   useEffect(() => {
     setloading(true);
     db.collection("Cart")
+    .where("userId", "==", id)
       .get()
       .then((collections) => {
         const cloths = collections.docs.map((cloths) => {
@@ -51,7 +53,7 @@ export function CheckOut() {
       });
   }, []);
 
-  console.log(productOrder)
+  
 
   const formatCur = function (value, locale, currency) {
     return new Intl.NumberFormat(locale, {
@@ -69,10 +71,43 @@ export function CheckOut() {
     return setsum(formatCur(sum, 'en-NG' , "NGN"));
   }, [price]);
 
+  const [name, setname] = useState("");
+  const [street, setstreet] = useState("");
+  const [town, settown] = useState("");
+  const [state, setstate] = useState("");
+  const [number, setnumber] = useState("");
+
+    const validateForm = () => {
+    let tempErrors = {};
+    if (!isfile) {
+      tempErrors.file1 = "Please select a Picture";
+    }
+    if (!name) {
+      tempErrors.name = "Please add your Name";
+    }
+    if (!street) {
+      tempErrors.street = "Please add your Street Address";
+    }
+    if (!town) {
+      tempErrors.town = "Please add your Town/City";
+    }
+    if (!state) {
+      tempErrors.state = "Please add state";
+    }
+    if (!number) {
+      tempErrors.phone = "Please input your Phone Number ";
+    }
+    seterrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
+
+
+
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
-    emailjs
+    if(validateForm()){
+      emailjs
     .sendForm(
       "service_dtrv7eq",
       "template_18is4ge",
@@ -89,6 +124,7 @@ export function CheckOut() {
         console.log(error.text);
       }
     );
+    }else{console.log("form is invalid");}
   };
 
   const upload = async () => {
@@ -108,6 +144,7 @@ export function CheckOut() {
   };
 
   console.log(image)
+
 
   return (
     <div className="pt-[90px] lg:absolute lg:left-[35%] lg:top-[12%] lg:w-[60%]">
@@ -156,7 +193,7 @@ export function CheckOut() {
             <p className="text-left text-2xl">Payment Method</p>
             <div className="border-[#deab24] border my-[1rem] p-[1rem] text-left">
               <p className="text-center text-xl mb-[0.5rem]">Direct bank transfer</p>
-              <p>Make your payment of #{sum} directly into our bank account</p>
+              <p>Make your payment of {sum} directly into our bank account</p>
               <p>Account Number :</p>
               <p>Bank Name: </p>
               <p>Account Name: </p>
@@ -178,6 +215,7 @@ export function CheckOut() {
                       }}
                     />
                   </div>
+                  {errors.file1 && <p className="error">{errors.file1}</p>}
                 </div>
               </div> 
 
@@ -191,27 +229,45 @@ export function CheckOut() {
 
 <form ref={form} onSubmit={sendEmail} className="w-[90%] border-[#deab24] border my-[1rem] flex flex-col px-[1rem] pb-[1rem]">
       <label className="text-left mt-[0.5rem]">Name</label>
-      <input type="text" name="user_name" className="border-[#deab24] border py-[0.5rem] rounded-[10px] px-[1rem]" />
+      <input onChange={(e) => {
+setname(e.target.value)
+      }} type="text" name="user_name" className="border-[#deab24] border py-[0.5rem] rounded-[10px] px-[1rem]" />
+     {errors.name && <p className="error">{errors.name}</p>}
       <label className="text-left mt-[0.5rem]">Street Address</label>
-      <input type="text" name="Street" className="border-[#deab24] border py-[0.5rem] rounded-[10px] px-[1rem]"/>
+      <input onChange={(e) => {
+setstreet(e.target.value)
+      }}  type="text" name="Street" className="border-[#deab24] border py-[0.5rem] rounded-[10px] px-[1rem]"/>
+      {errors.street && <p className="error">{errors.street}</p>}
       <label className="text-left mt-[0.5rem]">Town / City</label>
       <input
+      onChange={(e) => {
+        settown(e.target.value)
+              }} 
                 className="py-[0.5rem] rounded-[10px] px-[1rem] border-[#deab24] border"
                 type="text"
                 name="Town"
               />
+              {errors.town && <p className="error">{errors.town}</p>}
               <label className="text-left mt-[0.5rem]">State</label>
       <input
+      onChange={(e) => {
+        setstate(e.target.value)
+              }} 
                 className="py-[0.5rem] rounded-[10px] px-[1rem] border border-[#deab24]"
                 type="text"
                 name="State"
               />
+                 {errors.state && <p className="error">{errors.state}</p>}
                  <label className="text-left mt-[0.5rem]">Phone Number</label>
       <input
+      onChange={(e) => {
+        setnumber(e.target.value)
+              }} 
                 className="py-[0.5rem] rounded-[10px] px-[1rem] border border-[#deab24]"
                 type="text"
                 name="Phone"
               />
+              {errors.phone && <p className="error">{errors.phone}</p>}
       <label className="text-left mt-[0.5rem]">Order Message ( Optional )</label>
       <textarea name="message" className="border-[#deab24] border rounded-[10px]" />
       <label className="text-left mt-[0.5rem] opacity-0">Payment Picture</label>

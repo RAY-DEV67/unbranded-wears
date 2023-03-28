@@ -65,7 +65,7 @@ function App() {
                     path="/Search/:search"
                     element={<SearchResult />}
                   />
-                    <Route path="/Checkout" element={<CheckOut />} />
+                    <Route path="/Checkout/:id" element={<CheckOut />} />
                       </Routes>
                     </ScrollToTop>
                   </Router>

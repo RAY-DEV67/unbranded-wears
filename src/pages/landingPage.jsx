@@ -112,7 +112,7 @@ export function LandingPage() {
         {empty && "Please Check Your Network Connection"}
       </p>
 
-      <div className="flex flex-wrap gap-3 justify-center mb-[1rem]">
+      <div className="flex lg:flex flex-wrap gap-3 justify-center mb-[1rem]">
         {clothsList.map((post, index) => {
           return (
             <div
@@ -120,7 +120,7 @@ export function LandingPage() {
               onClick={() => {
                 //   navigate(`/ThriftNg/Buy/${post.category}/${post.id}`);
               }}
-              className="sm:w-[85vw] flex max-w-4xl"
+              className="flex max-w-4xl"
             >
               <TopCard post={post} />
             </div>
@@ -154,7 +154,7 @@ export function LandingPage() {
               onClick={() => {
                 //   navigate(`/ThriftNg/Buy/${post.category}/${post.id}`);
               }}
-              className="sm:w-[85vw] flex max-w-4xl"
+              className=" flex max-w-4xl"
             >
               <TopCard post={post} />
             </div>

@@ -94,3 +94,6 @@ animation: zoom-in-fade 3s ease-in-out infinite;
   .headingFont{
     font-family: 'Righteous', cursive;
   }
+  .error{
+    color: red;
+  }

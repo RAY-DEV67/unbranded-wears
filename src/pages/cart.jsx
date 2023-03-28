@@ -23,7 +23,7 @@ export function Cart() {
   const [empty, setempty] = useState(false);
   const [price, setprice] = useState([]);
   const [sum, setsum] = useState(0);
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   console.log(empty);
 
@@ -51,7 +51,7 @@ export function Cart() {
         }
       });
   }, []);
-
+  
   const formatCur = function (value, locale, currency) {
     return new Intl.NumberFormat(locale, {
       style: "currency",
@@ -87,11 +87,6 @@ export function Cart() {
               return (
                 <div
                   key={index}
-                  onClick={() => {
-                    // setProductsId(post.id);
-                    // setProducts("Top-Accessories");
-                    // navigate(`/ThriftNg/Buy/${post.category}/${post.postId}`);
-                  }}
                   className="sm:w-[85vw] lg:w-[95%] max-w-4xl"
                 >
                   <EcommerceCard post={post} />
@@ -106,14 +101,16 @@ export function Cart() {
                 <p>SUBTOTAL</p>
                 <p>{sum}</p>
               </div>
-              <Link to="/Checkout" className="flex flex-col items-center">
+              <div onClick={() => {
+                navigate(`/Checkout/${saved[0].userId}`)
+              }} className="flex flex-col items-center">
                 <button className="text-white rounded-[20px] bg-[#deab24] font-bold mt-[2rem] py-[0.5rem] px-[1rem]">
                   Check Out
                 </button>
-              </Link>
+              </div>
             </div>
           )}
-          <p className="text-white lg:hidden text-center bg-[#deab24] absolute text-[10px] w-[4%] left-[93%] top-[3%] z-20 rounded-full">
+          <p className="text-white lg:hidden text-center bg-[#deab24] fixed text-[10px] w-[4%] left-[93%] top-[3%] z-20 rounded-full">
             {saved.length}
           </p>
         </div>

@@ -30,7 +30,6 @@ export function ProductsPage() {
     setempty(false);
     db.collection("Products")
     .where("category", "==", "Fusion Bags")
-      .limit(10)
       .get()
       .then((collections) => {
         const cloths = collections.docs.map((cloths) => {
@@ -73,6 +72,7 @@ export function ProductsPage() {
       });
   };
 
+  console.log(clothsList.length)
  
   return (
     <div>
@@ -113,7 +113,7 @@ export function ProductsPage() {
             return (
               <div
               key={index}
-              className="sm:w-[85vw] lg:w-[95%] max-w-4xl"
+              className="max-w-4xl"
             >
                 <TopCard post={post} />
               </div>
