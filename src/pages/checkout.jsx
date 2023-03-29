@@ -19,7 +19,10 @@ export function CheckOut() {
   const [saved, setsaved] = useState([]);
   const [loading, setloading] = useState(false);
   const [price, setprice] = useState([]);
-  const [sum, setsum] = useState(0);
+  const [sumwest, setsumwest] = useState(0);
+  const [west, setwest] = useState(0);
+  const [sumother, setsumother] = useState(0);
+  const [other, setother] = useState(0);
   const [product, setproduct] = useState([]);
   const [productOrder, setproductOrder] = useState("");
   const [errors, seterrors] = useState("");
@@ -62,14 +65,35 @@ export function CheckOut() {
     }).format(value);
   };
 
+  useEffect(() => {
+    const westDelivery = 2600
+  setwest(formatCur(westDelivery, 'en-NG' , "NGN"))
+
+  const otherDelivery = 3000
+  setother(formatCur(otherDelivery, 'en-NG' , "NGN"))
+  }, []);
+
 
   useEffect(() => {
-    let sum = 0;
+    let sumwest = 0;
     for (let i = 0; i < price.length; i++) {
-      sum += price[i];
+      sumwest += price[i] + 2600;
     }
-    return setsum(formatCur(sum, 'en-NG' , "NGN"));
+    return setsumwest(formatCur(sumwest, 'en-NG' , "NGN"));
+    
   }, [price]);
+
+  useEffect(() => {
+    let sumother = 0;
+    for (let i = 0; i < price.length; i++) {
+      sumother += price[i] + 3000;
+    }
+    return setsumother(formatCur(sumother, 'en-NG' , "NGN"));
+    
+  }, [price]);
+
+
+
 
   const [name, setname] = useState("");
   const [street, setstreet] = useState("");
@@ -80,7 +104,7 @@ export function CheckOut() {
     const validateForm = () => {
     let tempErrors = {};
     if (!isfile) {
-      tempErrors.file1 = "Please select a Picture";
+      tempErrors.file1 = "Please add a Proof of Payment";
     }
     if (!name) {
       tempErrors.name = "Please add your Name";
@@ -117,7 +141,7 @@ export function CheckOut() {
     .then(
       (result) => {
         console.log(result.text);
-        navigate("/");
+        navigate("/Successful");
         console.log("message sent")
       },
       (error) => {
@@ -170,7 +194,7 @@ export function CheckOut() {
                           onClick={() => {
                             // setProductsId(post.id);
                             // setProducts("Top-Accessories");
-                            navigate(`/Buy/${post.category}/${post.id}`);
+                            // navigate(`/Buy/${post.category}/${post.id}`);
                           }}
                           className="sm:w-[85vw] lg:w-[95%] max-w-4xl"
                         >
@@ -182,9 +206,20 @@ export function CheckOut() {
                   })}
                 </div>
               </div>
-              <div className="flex justify-between mx-[1rem] my-[1.5rem] border-y py-[1rem]">
-                <p>SUBTOTAL</p>
-                <p>{sum}</p>
+              <div className="border-y py-[1rem] mx-[1rem]">
+              <div className="flex justify-between">
+                <p>Delivery Fees</p>
+                <p>{west} (Western States)</p>
+              </div>
+              <p className="text-end mt-[0.5rem]">{other} (Other States)</p>
+              </div>
+              <div className="flex justify-between mx-[1rem] mt-[1.5rem] border-t py-[1rem]">
+                <p>SUBTOTAL (Western States)</p>
+                <p>{sumwest}</p>
+              </div>
+              <div className="flex justify-between mx-[1rem] border-y py-[1rem]">
+                <p>SUBTOTAL (Other States)</p>
+                <p>{sumother}</p>
               </div>
             </div>
           </div>
@@ -193,10 +228,10 @@ export function CheckOut() {
             <p className="text-left text-2xl">Payment Method</p>
             <div className="border-[#deab24] border my-[1rem] p-[1rem] text-left">
               <p className="text-center text-xl mb-[0.5rem]">Direct bank transfer</p>
-              <p>Make your payment of {sum} directly into our bank account</p>
-              <p>Account Number :</p>
-              <p>Bank Name: </p>
-              <p>Account Name: </p>
+              <p>Make your payment of {sumwest} / {sumother} directly into our bank account</p>
+              <p>Account Number: 2111777213</p>
+              <p>Bank Name: UBA</p>
+              <p>Account Name: Kumapayi faith ibukunoluwa</p>
               <div className="mt-[1rem]">
                 <h2 className="text-center text-2xl">Add photo</h2>
                 <p className="text-[12px] mt-[1rem]">

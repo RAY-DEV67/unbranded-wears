@@ -18,10 +18,13 @@ export function AddProduct() {
   const [loading, setloading] = useState(false);
   const [category, setcategory] = useState("Categories");
   const [categories, setcategories] = useState();
+  const [highlight, sethighlight] = useState(false);
 
   // settop()
 
-  console.log(prices);
+  function setHigh () {
+    sethighlight(!highlight)
+  }
 
   // const [values, setvalues] = useState({
   //   title: "",
@@ -45,6 +48,9 @@ export function AddProduct() {
 
   const validateForm = () => {
     let tempErrors = {};
+    if (category === "Categories") {
+      tempErrors.category = "Please select a Category";
+    }
     if (!isfile) {
       tempErrors.file1 = "Please select a title Picture";
     }
@@ -73,6 +79,7 @@ export function AddProduct() {
       description: description,
       price: Number(prices),
       // userId: user?.uid,
+      AprilSales: highlight,
       category: category,
       searchKeywords:
         `${title.toLowerCase()} ${category?.toLowerCase()}`.split(
@@ -98,38 +105,38 @@ export function AddProduct() {
           });
       });
 
-    if (file2 == null) return;
-    storage
-      .ref("/images/" + file2.name)
-      .put(file2)
-      .on("state_changed", () => {
-        storage
-          .ref("images")
-          .child(file2.name)
-          .getDownloadURL()
-          .then((imgUrl) => {
-            updateDoc(docRef, {
-              images2: imgUrl,
-            });
-          });
-      });
+  //   if (file2 == null) return;
+  //   storage
+  //     .ref("/images/" + file2.name)
+  //     .put(file2)
+  //     .on("state_changed", () => {
+  //       storage
+  //         .ref("images")
+  //         .child(file2.name)
+  //         .getDownloadURL()
+  //         .then((imgUrl) => {
+  //           updateDoc(docRef, {
+  //             images2: imgUrl,
+  //           });
+  //         });
+  //     });
 
-    if (file3 == null) return;
-    storage
-      .ref("/images/" + file3.name)
-      .put(file3)
-      .on("state_changed", () => {
-        storage
-          .ref("images")
-          .child(file3.name)
-          .getDownloadURL()
-          .then((imgUrl) => {
-            updateDoc(docRef, {
-              images3: imgUrl,
-            });
-          });
-      });
-      setloading(false)
+  //   if (file3 == null) return;
+  //   storage
+  //     .ref("/images/" + file3.name)
+  //     .put(file3)
+  //     .on("state_changed", () => {
+  //       storage
+  //         .ref("images")
+  //         .child(file3.name)
+  //         .getDownloadURL()
+  //         .then((imgUrl) => {
+  //           updateDoc(docRef, {
+  //             images3: imgUrl,
+  //           });
+  //         });
+  //     });
+  //     setloading(false)
   };
 
   const handleSubmit = async (event) => {
@@ -147,7 +154,7 @@ export function AddProduct() {
 
   return (
     <div>
-      <div className="pt-[120px]">
+      <div className="pt-[120px] lg:absolute lg:left-[35%] lg:top-[12%] lg:w-[60%]">
           <p className="text-center py-[1rem] ">Add A New Product</p>
           <div className="flex flex-col items-center">
             <form
@@ -163,7 +170,7 @@ export function AddProduct() {
                 <p>{category}</p>
                 <p>&#8964;</p>
               </div>
-              {errors.category && <p>{errors.category}</p>}
+              {errors.category && <p className="error">{errors.category}</p>}
 
               {categories ? (
                 <div className="flex flex-col items-center mt-[1rem] bg-blue-300 py-[1rem] rounded-[10px]">
@@ -206,10 +213,10 @@ export function AddProduct() {
                         setfile1(event.target.files[0]);
                       }}
                     />
-                    {errors.file1 && <p>{errors.file1}</p>}
+                    {errors.file1 && <p className="error">{errors.file1}</p>}
                   </div>
 
-                  <div>
+                  {/* <div>
                     <input
                       className="mt-[1rem]"
                       type="file"
@@ -220,9 +227,9 @@ export function AddProduct() {
                       }}
                     />
                     {errors.file2 && <p>{errors.file2}</p>}
-                  </div>
+                  </div> */}
 
-                  <div>
+                  {/* <div>
                     <input
                       className="mt-[1rem]"
                       type="file"
@@ -232,7 +239,7 @@ export function AddProduct() {
                       }}
                     />
                     {errors.file3 && <p>{errors.file3}</p>}
-                  </div>
+                  </div> */}
                 </div>
                 <p className="text-[12px] mt-[1rem]">
                   Each picture must not exceed 5MB
@@ -252,7 +259,7 @@ export function AddProduct() {
                 // value={values.title}
                 // {...register("title")}
               />
-              {errors.title && <p>{errors.title}</p>}
+              {errors.title && <p className="error">{errors.title}</p>}
 
               <textarea
                 rows="4"
@@ -264,7 +271,19 @@ export function AddProduct() {
                 // value={values.description}
                 // {...register("description")}
               />
-              {errors.description && <p>{errors.description}</p>}
+              {errors.description && <p className="error">{errors.description}</p>}
+
+              <h2 className="mt-[1rem]">April Sales?</h2>
+              <div>
+                <input
+                  type="checkbox"
+                  id="Highlight"
+                  name="Highlight"
+                  className="mr-[0.5rem]"
+                  onChange={setHigh}
+                />
+                <label for="MIN">YES</label>
+              </div>
 
               <div className="relative">
                 <input
@@ -303,7 +322,7 @@ export function AddProduct() {
                   </g>
                 </svg>
               </div>
-              {errors.price && <p>{errors.price}</p>}
+              {errors.price && <p className="error">{errors.price}</p>}
 
 
               <input

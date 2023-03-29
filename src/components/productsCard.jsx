@@ -22,7 +22,7 @@ import { useNavigate } from "react-router-dom";
               className="rounded-[10px] h-[150px] w-[200px]"
               onClick={() => {
                 // setProductsId(post.id);
-                navigate(`/Buy/Products/${post.category}/${post.id}`);
+                // navigate(`/Buy/Products/${post.category}/${post.id}`);
                 // setProducts("Top-Shoes");
               }}
             />

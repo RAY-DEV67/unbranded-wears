@@ -70,7 +70,7 @@ import {
               alt="Product"
               className="rounded-[10px] h-[150px] w-[100%]"
               onClick={() => {
-                navigate(`/Buy/Products/${post.category}/${post.id}`);
+                // navigate(`/Buy/Products/${post.category}/${post.id}`);
               }}
             />
           </div>
