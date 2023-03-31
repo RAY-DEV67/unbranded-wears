@@ -27,6 +27,8 @@ export function TopCard(props) {
 
 
   const [user] = useAuthState(auth);
+
+  console.log(user)
   const navigate = useNavigate();
 
   const docRef = collection(db, "Cart");
@@ -51,12 +53,22 @@ export function TopCard(props) {
     try {
       const newDoc = await addDoc(docRef, {
         userId: user?.uid,
+        email: user?.email,
         postId: post.id,
         images: post.images,
+        images2: `${post.images2 ? post.images2 : ""}`,
+        images3: `${post.images3 ? post.images3 : ""}`,
+        images4: `${post.images4 ? post.images4 : ""}`,
+        images5: `${post.images5 ? post.images5 : ""}`,
         title: post.title,
         price: post.price,
         description: post.description,
-        category: post.category
+        category: post.category,
+        color: `${post.color ? post.color : ""}`,
+        color2: `${post.color2 ? post.color2 : ""}`,
+        color3: `${post.color3 ? post.color3 : ""}`,
+        color4: `${post.color4 ? post.color4 : ""}`,
+        color5: `${post.color5 ? post.color5 : ""}`,
       });
       console.log("DocumentAdded");
       setcart(cart + 1);

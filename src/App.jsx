@@ -26,12 +26,21 @@ export const AddCart = React.createContext();
 export const SetAddCart = React.createContext();
 export const SetSaved = React.createContext();
 export const Saved = React.createContext();
+export const Productname = React.createContext();
+export const SetProductname = React.createContext();
+export const Productcolor = React.createContext();
+export const SetProductcolor = React.createContext();
+
 
 function App() {
   const [loadCart, setloadCart] = useState(false);
   const [showcart, setshowcart] = useState(false);
   const [cart, setcart] = useState(0);
   const [saved, setsaved] = useState([]);
+  const [product, setproduct] = useState([]);
+  const [productcolor, setproductcolor] = useState();
+
+  console.log(productcolor)
 
   return (
     <div className="App bodyFont">
@@ -43,6 +52,10 @@ function App() {
                 <AddCart.Provider value={cart}>
                   <SetSaved.Provider value={setsaved}>
                     <Saved.Provider value={saved}>
+                      <Productname.Provider value={product}>
+                        <SetProductname.Provider value={setproduct}>
+                          <SetProductcolor.Provider value={setproductcolor}>
+                            <Productcolor.Provider value={productcolor}>
                   <Router>
                     <ScrollToTop>
                       <Navbar />
@@ -78,6 +91,10 @@ function App() {
                       </Routes>
                     </ScrollToTop>
                   </Router>
+                  </Productcolor.Provider>
+                  </SetProductcolor.Provider>
+                  </SetProductname.Provider>
+                  </Productname.Provider>
                   </Saved.Provider>
                   </SetSaved.Provider>
                 </AddCart.Provider>

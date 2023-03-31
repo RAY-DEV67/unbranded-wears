@@ -105,13 +105,13 @@ export function LandingPage() {
   const images = [bag1, shoe1, bag2, shoe2];
   const [index, setindex] = useState(0);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setindex((index + 1) % images.length);
-    }, 3000);
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     setindex((index + 1) % images.length);
+  //   }, 3000);
 
-    return () => clearInterval(timer);
-  }, [index, images.length]);
+  //   return () => clearInterval(timer);
+  // }, [index, images.length]);
 
   return (
     <div className="lg:absolute lg:left-[35%] lg:top-[12%] lg:w-[60%]">
