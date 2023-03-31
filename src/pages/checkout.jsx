@@ -26,6 +26,10 @@ export function CheckOut() {
   const [product, setproduct] = useState([]);
   const [productOrder, setproductOrder] = useState("");
   const [errors, seterrors] = useState("");
+const [abuja, setabuja] = useState(0);
+const [ife, setife] = useState(0);
+const [sum, setsum] = useState(0);
+
   const { id } = useParams();
   console.log(product)
 
@@ -56,7 +60,8 @@ export function CheckOut() {
       });
   }, []);
 
-  
+  const [ifedelivery, setifedelivery] = useState(0);
+  const [abujadelivery, setabujadelivery] = useState(0);
 
   const formatCur = function (value, locale, currency) {
     return new Intl.NumberFormat(locale, {
@@ -71,27 +76,22 @@ export function CheckOut() {
 
   const otherDelivery = 3000
   setother(formatCur(otherDelivery, 'en-NG' , "NGN"))
+
+  const ifeDelivery = 500
+  setifedelivery(formatCur(ifeDelivery, 'en-NG' , "NGN"))
+
+  const abujaDelivery = 1500
+  setabujadelivery(formatCur(abujaDelivery, 'en-NG' , "NGN"))
   }, []);
 
-
   useEffect(() => {
-    let sumwest = 0;
+    let sum = 0;
     for (let i = 0; i < price.length; i++) {
-      sumwest += price[i] + 2600;
+      sum += price[i];
     }
-    return setsumwest(formatCur(sumwest, 'en-NG' , "NGN"));
-    
+    return setsum(sum);
   }, [price]);
-
-  useEffect(() => {
-    let sumother = 0;
-    for (let i = 0; i < price.length; i++) {
-      sumother += price[i] + 3000;
-    }
-    return setsumother(formatCur(sumother, 'en-NG' , "NGN"));
-    
-  }, [price]);
-
+  
 
 
 
@@ -207,19 +207,30 @@ export function CheckOut() {
                 </div>
               </div>
               <div className="border-y py-[1rem] mx-[1rem]">
+                <p className="mb-[1rem] text-[#deab24]">Note: No Park Delivery</p>
               <div className="flex justify-between">
                 <p>Delivery Fees</p>
                 <p>{west} (Western States)</p>
               </div>
               <p className="text-end mt-[0.5rem]">{other} (Other States)</p>
+              <p className="text-end mt-[0.5rem]">{abujadelivery} (Abuja)</p>
+              <p className="text-end mt-[0.5rem]">{ifedelivery} (Within Ife)</p>
               </div>
               <div className="flex justify-between mx-[1rem] mt-[1.5rem] border-t py-[1rem]">
                 <p>SUBTOTAL (Western States)</p>
-                <p>{sumwest}</p>
+                <p>{formatCur(sum + 2600, 'en-NG' , "NGN")}</p>
               </div>
               <div className="flex justify-between mx-[1rem] border-y py-[1rem]">
                 <p>SUBTOTAL (Other States)</p>
-                <p>{sumother}</p>
+                <p>{formatCur(sum + 3000, 'en-NG' , "NGN")}</p>
+              </div>
+              <div className="flex justify-between mx-[1rem] border-y py-[1rem]">
+                <p>SUBTOTAL (Abuja)</p>
+                <p>{formatCur(sum + 1500, 'en-NG' , "NGN")}</p>
+              </div>
+              <div className="flex justify-between mx-[1rem] border-y py-[1rem]">
+                <p>SUBTOTAL (Within Ife)</p>
+                <p>{formatCur(sum + 500, 'en-NG' , "NGN")}</p>
               </div>
             </div>
           </div>
@@ -228,10 +239,10 @@ export function CheckOut() {
             <p className="text-left text-2xl">Payment Method</p>
             <div className="border-[#deab24] border my-[1rem] p-[1rem] text-left">
               <p className="text-center text-xl mb-[0.5rem]">Direct bank transfer</p>
-              <p>Make your payment of {sumwest} / {sumother} directly into our bank account</p>
-              <p>Account Number: 2111777213</p>
-              <p>Bank Name: UBA</p>
-              <p>Account Name: Kumapayi faith ibukunoluwa</p>
+              <p>Make your payment directly into our bank account</p>
+              <p>Account Number: 7358333128</p>
+              <p>Bank Name: WEMA BANK</p>
+              <p>Account Name: FUSION GRANDEUR ENTERPRISES</p>
               <div className="mt-[1rem]">
                 <h2 className="text-center text-2xl">Add photo</h2>
                 <p className="text-[12px] mt-[1rem]">

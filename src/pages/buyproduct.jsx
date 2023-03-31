@@ -141,7 +141,7 @@ console.log(error)
     }).format(value);
   };
 
-  // const images = [buyProduct?.image, buyProduct?.image, buyProduct?.images]
+  const images = [buyProduct?.images, buyProduct?.images2, buyProduct?.images3, buyProduct?.images4, buyProduct?.images5]
   // const [index, setindex] = useState(0);
   
   // useEffect(() => {
@@ -152,15 +152,24 @@ console.log(error)
   //     return () => clearInterval(timer)
   // }, [index, images.length]);
 
+  // let images = buyProduct?.images
+const [i, seti] = useState(0);
+
   return (
     <div className="productfont lg:absolute lg:left-[35%] lg:top-[12%] lg:w-[60%]">
       {/* <Topnav /> */}
       {buyProduct ? <div>
         <div className="flex justify-center relative pt-[120px] mx-[0.5rem] lg:-z-10">
-      <img alt="img2" src={buyProduct?.images} className="object-contain topcard rounded-[1rem]" />
+      <img alt="img2" src={images[i]} className="object-contain topcard rounded-[1rem]" />
          </div>   
 
-
+<div className="flex m-[1rem]">
+{buyProduct.color ? <p onClick={() => {seti(0)}} className={`border p-[0.3rem] border-[#deab24] ${i == 0 ? "bg-[#deab24] text-white" : ""}`}>{buyProduct.color}</p> : ""}
+{buyProduct.color2 ? <p onClick={() => {seti(1)}} className={`mx-[1rem] border p-[0.3rem] border-[#deab24] ${i == 1 ? "bg-[#deab24] text-white" : ""}`}>{buyProduct.color2}</p> : ""}
+{buyProduct.color3 ? <p onClick={() => {seti(2)}} className={`border p-[0.3rem] border-[#deab24] ${i == 2 ? "bg-[#deab24] text-white" : ""}`}>{buyProduct.color3}</p> : ""}
+{buyProduct.color4 ? <p onClick={() => {seti(3)}} className={`mx-[1rem] border border-[#deab24] p-[0.3rem] ${i == 3 ? "bg-[#deab24] text-white" : ""}`}>{buyProduct.color4}</p> : ""}
+{buyProduct.color5 ? <p onClick={() => {seti(4)}} className={`border p-[0.3rem] border-[#deab24] ${i == 4 ? "bg-[#deab24] text-white" : ""}`}>{buyProduct.color5}</p> : ""}
+</div>
         
 
       <div className="buyProductBorder mb-[1rem] mt-[1rem] mx-[1rem] pb-[1rem] text-left">

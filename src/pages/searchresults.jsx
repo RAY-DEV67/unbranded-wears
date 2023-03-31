@@ -70,7 +70,7 @@ query.get().then((querySnapshot) => {
               onClick={() => {
                 navigate(`/Buy/Products/${post.category}/${post.id}`);
               }}
-              className="lg:w-[95%] max-w-4xl"
+              className="max-w-4xl"
             >
                   <TopCard post={post} />
                 </div>

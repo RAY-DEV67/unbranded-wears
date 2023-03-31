@@ -89,10 +89,10 @@ overflow-x: hidden;
 animation: zoom-in-fade 3s ease-in-out infinite;
   }
   .bodyFont{
-    font-family: 'Fira Sans', sans-serif;
+    /* font-family: 'Fira Sans', sans-serif; */
   }
   .headingFont{
-    font-family: 'Righteous', cursive;
+    /* font-family: 'Righteous', cursive; */
   }
   .error{
     color: red;

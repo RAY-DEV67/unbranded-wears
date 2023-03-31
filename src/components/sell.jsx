@@ -12,6 +12,8 @@ export function AddProduct() {
   const [isfile, setfile1] = useState("");
   const [file2, setfile2] = useState("");
   const [file3, setfile3] = useState("");
+  const [file4, setfile4] = useState("");
+  const [file5, setfile5] = useState("");
   const [prices, setprices] = useState(null);
   const [title, settitle] = useState("");
   const [description, setdescription] = useState("");
@@ -19,6 +21,11 @@ export function AddProduct() {
   const [category, setcategory] = useState("Categories");
   const [categories, setcategories] = useState();
   const [highlight, sethighlight] = useState(false);
+  const [color, setcolor] = useState("");
+  const [color2, setcolor2] = useState("");
+  const [color3, setcolor3] = useState("");
+  const [color4, setcolor4] = useState("");
+  const [color5, setcolor5] = useState("");
 
   // settop()
 
@@ -75,6 +82,11 @@ export function AddProduct() {
   const upload = async () => {
     setloading(true)
     const docRef = await addDoc(collection(db, "Products"), {
+      color: color,
+      color2: color2,
+      color3: color3,
+      color4: color4,
+      color5: color5,
       title: title,
       description: description,
       price: Number(prices),
@@ -105,38 +117,72 @@ export function AddProduct() {
           });
       });
 
-  //   if (file2 == null) return;
-  //   storage
-  //     .ref("/images/" + file2.name)
-  //     .put(file2)
-  //     .on("state_changed", () => {
-  //       storage
-  //         .ref("images")
-  //         .child(file2.name)
-  //         .getDownloadURL()
-  //         .then((imgUrl) => {
-  //           updateDoc(docRef, {
-  //             images2: imgUrl,
-  //           });
-  //         });
-  //     });
+    if (file2 == null) return;
+    storage
+      .ref("/images/" + file2.name)
+      .put(file2)
+      .on("state_changed", () => {
+        storage
+          .ref("images")
+          .child(file2.name)
+          .getDownloadURL()
+          .then((imgUrl) => {
+            updateDoc(docRef, {
+              images2: imgUrl,
+            });
+          });
+      });
 
-  //   if (file3 == null) return;
-  //   storage
-  //     .ref("/images/" + file3.name)
-  //     .put(file3)
-  //     .on("state_changed", () => {
-  //       storage
-  //         .ref("images")
-  //         .child(file3.name)
-  //         .getDownloadURL()
-  //         .then((imgUrl) => {
-  //           updateDoc(docRef, {
-  //             images3: imgUrl,
-  //           });
-  //         });
-  //     });
-  //     setloading(false)
+    if (file3 == null) return;
+    storage
+      .ref("/images/" + file3.name)
+      .put(file3)
+      .on("state_changed", () => {
+        storage
+          .ref("images")
+          .child(file3.name)
+          .getDownloadURL()
+          .then((imgUrl) => {
+            updateDoc(docRef, {
+              images3: imgUrl,
+            });
+          });
+      });
+
+      
+    if (file4 == null) return;
+    storage
+      .ref("/images/" + file4.name)
+      .put(file4)
+      .on("state_changed", () => {
+        storage
+          .ref("images")
+          .child(file4.name)
+          .getDownloadURL()
+          .then((imgUrl) => {
+            updateDoc(docRef, {
+              images4: imgUrl,
+            });
+          });
+      });
+
+      
+    if (file5 == null) return;
+    storage
+      .ref("/images/" + file5.name)
+      .put(file5)
+      .on("state_changed", () => {
+        storage
+          .ref("images")
+          .child(file5.name)
+          .getDownloadURL()
+          .then((imgUrl) => {
+            updateDoc(docRef, {
+              images5: imgUrl,
+            });
+          });
+      });
+      setloading(false)
   };
 
   const handleSubmit = async (event) => {
@@ -216,7 +262,7 @@ export function AddProduct() {
                     {errors.file1 && <p className="error">{errors.file1}</p>}
                   </div>
 
-                  {/* <div>
+                   <div>
                     <input
                       className="mt-[1rem]"
                       type="file"
@@ -226,10 +272,9 @@ export function AddProduct() {
                         console.log(event.target.files[0]);
                       }}
                     />
-                    {errors.file2 && <p>{errors.file2}</p>}
-                  </div> */}
+                  </div>
 
-                  {/* <div>
+                   <div>
                     <input
                       className="mt-[1rem]"
                       type="file"
@@ -238,8 +283,29 @@ export function AddProduct() {
                         setfile3(event.target.files[0]);
                       }}
                     />
-                    {errors.file3 && <p>{errors.file3}</p>}
-                  </div> */}
+                  </div> 
+                  
+                  <div>
+                    <input
+                      className="mt-[1rem]"
+                      type="file"
+                      name="photos4"
+                      onChange={(event) => {
+                        setfile4(event.target.files[0]);
+                      }}
+                    />
+                  </div> 
+                  
+                   <div>
+                    <input
+                      className="mt-[1rem]"
+                      type="file"
+                      name="photos5"
+                      onChange={(event) => {
+                        setfile5(event.target.files[0]);
+                      }}
+                    />
+                  </div> 
                 </div>
                 <p className="text-[12px] mt-[1rem]">
                   Each picture must not exceed 5MB
@@ -260,6 +326,58 @@ export function AddProduct() {
                 // {...register("title")}
               />
               {errors.title && <p className="error">{errors.title}</p>}
+              <input
+                className="mt-[1rem] py-[0.5rem] rounded-[10px] px-[1rem]"
+                type="text"
+                placeholder="color 1"
+                name="color1"
+                onChange={(e) => {setcolor(e.target.value)}}
+                // value={values.title}
+                // {...register("title")}
+              />
+
+<input
+                className="mt-[1rem] py-[0.5rem] rounded-[10px] px-[1rem]"
+                type="text"
+                placeholder="color 2"
+                name="color2"
+                onChange={(e) => {setcolor2(e.target.value)}}
+                // value={values.title}
+                // {...register("title")}
+              />
+
+              
+<input
+                className="mt-[1rem] py-[0.5rem] rounded-[10px] px-[1rem]"
+                type="text"
+                placeholder="color 3"
+                name="color3"
+                onChange={(e) => {setcolor3(e.target.value)}}
+                // value={values.title}
+                // {...register("title")}
+              />
+
+              
+<input
+                className="mt-[1rem] py-[0.5rem] rounded-[10px] px-[1rem]"
+                type="text"
+                placeholder="color 4"
+                name="color4"
+                onChange={(e) => {setcolor4(e.target.value)}}
+                // value={values.title}
+                // {...register("title")}
+              />
+
+              
+<input
+                className="mt-[1rem] py-[0.5rem] rounded-[10px] px-[1rem]"
+                type="text"
+                placeholder="color 5"
+                name="color5"
+                onChange={(e) => {setcolor5(e.target.value)}}
+                // value={values.title}
+                // {...register("title")}
+              />
 
               <textarea
                 rows="4"
@@ -273,7 +391,7 @@ export function AddProduct() {
               />
               {errors.description && <p className="error">{errors.description}</p>}
 
-              <h2 className="mt-[1rem]">April Sales?</h2>
+              <h2 className="mt-[1rem]">Anniversary Sales?</h2>
               <div>
                 <input
                   type="checkbox"

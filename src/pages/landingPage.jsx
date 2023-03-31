@@ -122,17 +122,18 @@ export function LandingPage() {
           className="h-[400px] w-[100%] object-cover animate-zoom-in-fade rounded-b-[20px]"
         />
         <div className="flex flex-col items-center justify-center w-[100vw] lg:w-[60vw] h-[88.5%] absolute top-[16%] mt-[-1.3rem] rounded-b-[20px] overLanding">
-          <p className="mx-[1rem] text-3xl text-white headingFont">
-            BE ELEGANT
+          <p className="mx-[1rem] text-3xl text-white headingFont text-center">No 1 HANDMADE BAGS AND SHOES BRAND</p>
+          <p className="mx-[1rem] text-2xl mt-[2rem] text-white headingFont">
+            BE ELEGANT <span className="text-[#deab24]">WEAR FUSION</span>
           </p>
-          <p className="mx-[1rem] text-4xl text-[#deab24] headingFont font-bold">
+          {/* <p className="mx-[1rem] text-4xl text-[#deab24] headingFont font-bold">
             WEAR FUSION
-          </p>
+          </p> */}
         </div>
       </div>
       <Search />
       <div className="flex justify-between p-2 px-[1.5rem] mb-[1rem] text-white bg-[#deab24] font-bold rounded-[20px] heading">
-        <h2>April Sales</h2>
+        <h2>Anniversary Sales</h2>
         <p
           onClick={() => {
             navigate("/AprilSales");
