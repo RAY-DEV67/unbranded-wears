@@ -30,6 +30,7 @@ export function LandingPage() {
       db.collection("Products")
         .limit(10)
         .where("category", "==", "Fusion Bags")
+        .where("AprilSales", "==", false)
         .get()
         .then((collections) => {
           const cloths = collections.docs.map((cloths) => {
@@ -82,6 +83,7 @@ export function LandingPage() {
       db.collection("Products")
         .limit(10)
         .where("category", "==", "Fusion Shoes")
+        // .where("AprilSales", "==", false)
         .get()
         .then((collections) => {
           const cloths = collections.docs.map((cloths) => {
@@ -147,7 +149,7 @@ export function LandingPage() {
         {loading && <LoadingSpinner />}
       </p>
       <p className="w-[100%] text-center">
-        {emptysales && <p className="text-2xl">COMING SOON</p>}
+        {emptysales && <p className="text-2xl">Please Check Your Network Connection</p>}
       </p>
 
       <div className="flex lg:flex flex-wrap gap-3 justify-center mb-[1rem]">

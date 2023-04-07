@@ -30,6 +30,7 @@ export function ProductsPage() {
     setempty(false);
     db.collection("Products")
     .where("category", "==", "Fusion Bags")
+    .where("AprilSales", "==", false)
       .get()
       .then((collections) => {
         const cloths = collections.docs.map((cloths) => {
