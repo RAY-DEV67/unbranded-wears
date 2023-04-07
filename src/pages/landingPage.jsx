@@ -83,7 +83,7 @@ export function LandingPage() {
       db.collection("Products")
         .limit(10)
         .where("category", "==", "Fusion Shoes")
-        // .where("AprilSales", "==", false)
+        .where("AprilSales", "==", false)
         .get()
         .then((collections) => {
           const cloths = collections.docs.map((cloths) => {
