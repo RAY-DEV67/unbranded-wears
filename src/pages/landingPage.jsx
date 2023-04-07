@@ -145,6 +145,15 @@ export function LandingPage() {
         </p>
       </div>
 
+     <div className="flex flex-col items-center">
+     <div className="w-[90%] border rounded-[15px] bg-red-500 font-bold text-white px-[0.7rem] py-[1rem]">
+          <p className="text-lg mb-[0.5rem] text-center">DISCLAIMER</p>
+          <p>
+          Sales delivery commences on the 18th - 26th of May 2023
+          </p>
+        </div>
+     </div>
+
       <p className="w-[100%] flex flex-col items-center my-[1rem] loaderContainer">
         {loading && <LoadingSpinner />}
       </p>
