@@ -104,7 +104,7 @@ const [color10, setcolor10] = useState("");
   const ifeDelivery = 500
   setifedelivery(formatCur(ifeDelivery, 'en-NG' , "NGN"))
 
-  const abujaDelivery = 1500
+  const abujaDelivery = 1000
   setabujadelivery(formatCur(abujaDelivery, 'en-NG' , "NGN"))
   }, []);
 
@@ -241,8 +241,8 @@ const [order, setorder] = useState("Place Order");
                 <p>Delivery Fees</p>
                 <p>{west} (Western States)</p>
               </div>
-              <p className="text-end mt-[0.5rem]">{other} (Other States)</p>
-              <p className="text-end mt-[0.5rem]">{abujadelivery} (Abuja)</p>
+              <p className="text-end mt-[0.5rem]">{other} (Southern, Eastern and Northern States)</p>
+              <p className="text-end mt-[0.5rem]">{abujadelivery} (Sabo and its environs)</p>
               <p className="text-end mt-[0.5rem]">{ifedelivery} (Within Ife)</p>
               </div>
               <div className="flex justify-between mx-[1rem] mt-[1.5rem] border-t py-[1rem]">
@@ -250,11 +250,11 @@ const [order, setorder] = useState("Place Order");
                 <p>{formatCur(sum + 2600, 'en-NG' , "NGN")}</p>
               </div>
               <div className="flex justify-between mx-[1rem] border-y py-[1rem]">
-                <p>SUBTOTAL (Other States)</p>
+                <p>SUBTOTAL (Southern, Eastern and Northern States)</p>
                 <p>{formatCur(sum + 3000, 'en-NG' , "NGN")}</p>
               </div>
               <div className="flex justify-between mx-[1rem] border-y py-[1rem]">
-                <p>SUBTOTAL (Abuja)</p>
+                <p>SUBTOTAL (Sabo and its environs)</p>
                 <p>{formatCur(sum + 1500, 'en-NG' , "NGN")}</p>
               </div>
               <div className="flex justify-between mx-[1rem] border-y py-[1rem]">
