@@ -104,7 +104,6 @@ function App() {
         </SetShowCart.Provider>
       </ShowCart.Provider>
 </div>
-    </div>
   );
 }
 
