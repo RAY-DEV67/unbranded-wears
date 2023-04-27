@@ -49,65 +49,6 @@ function App() {
       <p className="text-2xl my-[1rem]">MAINTENANCE MODE</p>
       <p>Shop from fusion grandeur on whatsapp +2348078455766</p>
 </div>
-//       <ShowCart.Provider value={showcart}>
-//         <SetShowCart.Provider value={setshowcart}>
-//           <SetLoadCart.Provider value={setloadCart}>
-//             <LoadCart.Provider value={loadCart}>
-//               <SetAddCart.Provider value={setcart}>
-//                 <AddCart.Provider value={cart}>
-//                   <SetSaved.Provider value={setsaved}>
-//                     <Saved.Provider value={saved}>
-//                       <Productname.Provider value={product}>
-//                         <SetProductname.Provider value={setproduct}>
-//                           <SetProductcolor.Provider value={setproductcolor}>
-//                             <Productcolor.Provider value={productcolor}>
-//                   <Router>
-//                     <ScrollToTop>
-//                       <Navbar />
-
-//                       <Routes>
-//                         <Route path="/" element={<LandingPage />} />
-//                         <Route path="/Product" element={<AddProduct />} />
-//                         <Route
-//                           path="/All-Bags-Products"
-//                           element={<ProductsPage />}
-//                         />
-//                           <Route
-//                           path="/All-Shoes-Products"
-//                           element={<ShoesPage />}
-//                         />
-//                         <Route path="/Profile" element={<Profile />} />
-//                         <Route path="/Cart/:id" element={<Cart />} />
-//                         <Route
-//                       path="/Buy/:collections/:product/:id"
-//                       element={<BuyProduct />}
-//                     />
-//                      <Route
-//                     path="/Search/:search"
-//                     element={<SearchResult />}
-//                   />
-//                     <Route path="/Checkout/:id" element={<CheckOut />} />
-//                     <Route path="/Successful" element={<Success />} />
-//                     <Route path="AprilSales" element={<April />} />
-//                     <Route
-//                     path="/*"
-//                     element={<Page404 />}
-//                   />
-//                       </Routes>
-//                     </ScrollToTop>
-//                   </Router>
-//                   </Productcolor.Provider>
-//                   </SetProductcolor.Provider>
-//                   </SetProductname.Provider>
-//                   </Productname.Provider>
-//                   </Saved.Provider>
-//                   </SetSaved.Provider>
-//                 </AddCart.Provider>
-//               </SetAddCart.Provider>
-//             </LoadCart.Provider>
-//           </SetLoadCart.Provider>
-//         </SetShowCart.Provider>
-//       </ShowCart.Provider>
     </div>
   );
 }
