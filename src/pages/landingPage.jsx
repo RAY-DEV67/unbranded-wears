@@ -134,49 +134,6 @@ export function LandingPage() {
         </div>
       </div>
       <Search />
-      <div className="flex justify-between p-2 px-[1.5rem] mb-[1rem] text-white bg-[#deab24] font-bold rounded-[20px] heading">
-        <h2>Anniversary Sales</h2>
-        <p
-          onClick={() => {
-            navigate("/AprilSales");
-          }}
-        >
-          See All
-        </p>
-      </div>
-
-     <div className="flex flex-col items-center">
-     <div className="w-[90%] border rounded-[15px] bg-red-500 font-bold text-white px-[0.7rem] py-[1rem]">
-          <p className="text-lg mb-[0.5rem] text-center">DISCLAIMER</p>
-          <p>
-          Sales delivery commences on the 18th - 26th of May 2023
-          </p>
-        </div>
-     </div>
-
-      <p className="w-[100%] flex flex-col items-center my-[1rem] loaderContainer">
-        {loading && <LoadingSpinner />}
-      </p>
-      <p className="w-[100%] text-center">
-        {emptysales && <p className="text-2xl">Please Check Your Network Connection</p>}
-      </p>
-
-      <div className="flex lg:flex flex-wrap gap-3 justify-center mb-[1rem]">
-        {sales.map((post, index) => {
-          return (
-            <div
-              key={index}
-              onClick={() => {
-                //   navigate(`/ThriftNg/Buy/${post.category}/${post.id}`);
-              }}
-              className="flex max-w-4xl"
-            >
-              <TopCard post={post} />
-            </div>
-          );
-        })}
-      </div>
-
 
       <div className="flex justify-between p-2 px-[1.5rem] mb-[1rem] text-white bg-[#deab24] font-bold rounded-[20px] heading">
         <h2>Fusion Bags</h2>
