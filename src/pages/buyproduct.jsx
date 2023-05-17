@@ -188,7 +188,7 @@ const [i, seti] = useState(0);
               </div>
 
               <div className="mx-[1rem] flex justify-center">
-        <div className="py-[0.5rem] px-[1rem] rounded-sm mt-[1rem] w-[130px] mb-[0.5rem] bg-[#deab24]" onClick={() => {
+        <div className="py-[0.5rem] px-[1rem] rounded-sm mt-[1rem] w-[130px] mb-[0.5rem] bg-[#282828]" onClick={() => {
                 !user
                   ? navigate("/Profile")
                   : hasProductBeenSaved
@@ -200,7 +200,7 @@ const [i, seti] = useState(0);
               <div className="Cartloading-spinner"></div>
             </div>
           ) : (
-           <p className="text-white text-sm w-[100%]">{hasProductBeenSaved ? "Added To Cart!!" : "Add To Cart "}</p>
+           <p className="text-[#f8b857] text-sm w-[100%]">{hasProductBeenSaved ? "Added To Cart!!" : "Add To Cart "}</p>
           )}
         </div>
              </div>

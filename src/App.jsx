@@ -10,12 +10,10 @@ import { ProductsPage } from "./pages/BagsPage";
 import { Profile } from "./pages/profile";
 import { Cart } from "./pages/cart";
 import { BuyProduct } from "./pages/buyproduct";
-import { ShoesPage } from "./pages/shoespage";
 import { CheckOut } from "./pages/checkout";
 import { Search } from "./components/search";
 import { SearchResult } from "./pages/searchresults";
 import { Success } from "./pages/success";
-import { April } from "./pages/aprilsales";
 import { Page404 } from "./pages/404page";
 
 export const ShowCart = React.createContext();
@@ -67,10 +65,6 @@ function App() {
                           path="/All-Bags-Products"
                           element={<ProductsPage />}
                         />
-                          <Route
-                          path="/All-Shoes-Products"
-                          element={<ShoesPage />}
-                        />
                         <Route path="/Profile" element={<Profile />} />
                         <Route path="/Cart/:id" element={<Cart />} />
                         <Route
@@ -83,7 +77,6 @@ function App() {
                   />
                     <Route path="/Checkout/:id" element={<CheckOut />} />
                     <Route path="/Successful" element={<Success />} />
-                    <Route path="AprilSales" element={<April />} />
                     <Route
                     path="/*"
                     element={<Page404 />}

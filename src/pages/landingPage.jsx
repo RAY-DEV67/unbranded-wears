@@ -124,7 +124,7 @@ export function LandingPage() {
       <Search />
 
       <div className="flex justify-between p-2 px-[1.5rem] mb-[1rem] text-[#f8b857] bg-[#282828] font-bold rounded-[20px] heading">
-        <h2>Fusion Bags</h2>
+        <h2>Unbranded Wears</h2>
         <p
           onClick={() => {
             navigate("/All-Bags-Products");
@@ -156,41 +156,6 @@ export function LandingPage() {
           );
         })}
       </div>
-
-      <div className="flex font-bold justify-between p-2 px-[1.5rem] mb-[1rem] text-[#f8b857] bg-[#282828] rounded-[20px]">
-        <h2>Fusion Shoes</h2>
-        <p
-          onClick={() => {
-            navigate("/All-Shoes-Products");
-          }}
-        >
-          See All
-        </p>
-      </div>
-
-      <p className="w-[100%] flex flex-col items-center my-[1rem] loaderContainer">
-        {loading && <LoadingSpinner />}
-      </p>
-      <p className="w-[100%] text-center">
-        {empty2 && "Please Check Your Network Connection"}
-      </p>
-
-      <div className="flex flex-wrap gap-3 justify-center mb-[1rem]">
-        {shoelist.map((post, index) => {
-          return (
-            <div
-              key={index}
-              onClick={() => {
-                //   navigate(`/ThriftNg/Buy/${post.category}/${post.id}`);
-              }}
-              className=" flex max-w-4xl"
-            >
-              <TopCard post={post} />
-            </div>
-          );
-        })}
-      </div>
-
       <Footer />
     </div>
   );
