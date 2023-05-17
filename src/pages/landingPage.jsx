@@ -5,10 +5,7 @@ import db from "../config/firebase";
 import { TopCard } from "../components/topcard";
 import { useNavigate } from "react-router-dom";
 import LoadingSpinner from "../components/spinner";
-import bag2 from "../assets/bags2.webp";
-import bag1 from "../assets/landingImage.webp";
-import shoe1 from "../assets/shoe1.webp";
-import shoe2 from "../assets/shoe2.webp";
+import usmain from "../assets/usmain2.jpg";
 import { Footer } from "../components/footer";
 
 export function LandingPage() {
@@ -104,7 +101,7 @@ export function LandingPage() {
     }
   }, []);
 
-  const images = [bag1, shoe1, bag2, shoe2];
+  const images = [usmain];
   const [index, setindex] = useState(0);
 
   // useEffect(() => {
@@ -121,21 +118,12 @@ export function LandingPage() {
         <img
           src={images[index]}
           alt="Fusion Grandeur"
-          className="h-[400px] w-[100%] object-cover animate-zoom-in-fade rounded-b-[20px]"
+          className="w-[100%]"
         />
-        <div className="flex flex-col items-center justify-center w-[100vw] lg:w-[60vw] h-[88.5%] absolute top-[16%] mt-[-1.3rem] rounded-b-[20px] overLanding">
-          <p className="mx-[1rem] text-3xl text-white headingFont text-center">No 1 HANDMADE BAGS AND SHOES BRAND</p>
-          <p className="mx-[1rem] text-2xl mt-[2rem] text-white headingFont">
-            BE ELEGANT <span className="text-[#deab24]">WEAR FUSION</span>
-          </p>
-          {/* <p className="mx-[1rem] text-4xl text-[#deab24] headingFont font-bold">
-            WEAR FUSION
-          </p> */}
-        </div>
       </div>
       <Search />
 
-      <div className="flex justify-between p-2 px-[1.5rem] mb-[1rem] text-white bg-[#deab24] font-bold rounded-[20px] heading">
+      <div className="flex justify-between p-2 px-[1.5rem] mb-[1rem] text-[#f8b857] bg-[#282828] font-bold rounded-[20px] heading">
         <h2>Fusion Bags</h2>
         <p
           onClick={() => {
@@ -169,7 +157,7 @@ export function LandingPage() {
         })}
       </div>
 
-      <div className="flex font-bold justify-between p-2 px-[1.5rem] mb-[1rem] text-white bg-[#deab24] rounded-[20px]">
+      <div className="flex font-bold justify-between p-2 px-[1.5rem] mb-[1rem] text-[#f8b857] bg-[#282828] rounded-[20px]">
         <h2>Fusion Shoes</h2>
         <p
           onClick={() => {

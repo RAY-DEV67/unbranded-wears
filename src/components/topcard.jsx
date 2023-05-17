@@ -121,7 +121,7 @@ export function TopCard(props) {
   };
 
   return (
-    <div className="topcard lg:w-[25vw] w-[42vw] border-y border-[#deab24] rounded-[10px]">
+    <div className="topcard lg:w-[25vw] w-[42vw] border-y border-[#282828] rounded-[10px]">
       <div className="relative">
         <img
           src={post.images}
@@ -146,7 +146,7 @@ export function TopCard(props) {
 
       <div className="mx-[1rem] flex justify-center">
         <div
-          className="p-[0.1rem] px-[1rem] rounded-sm mt-[1rem] mb-[0.5rem] bg-[#deab24]"
+          className="p-[0.1rem] px-[1rem] rounded-sm mt-[1rem] mb-[0.5rem] bg-[#282828]"
           onClick={() => {
             !user
               ? navigate("/Profile")
@@ -160,7 +160,7 @@ export function TopCard(props) {
               <div className="Cartloading-spinner"></div>
             </div>
           ) : (
-            <p className="text-white text-sm">
+            <p className="text-[#f8b857] text-sm">
               {hasProductBeenSaved ? "Added To Cart!!" : "Add To Cart "}
             </p>
           )}

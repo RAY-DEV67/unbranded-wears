@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/fusionlogo.png";
+import logo from "../assets/uslogo.png";
 import { useEffect, useState, useContext } from "react";
 import db from "../config/firebase";
 import { auth, provider } from "../config/firebase";
@@ -82,11 +82,11 @@ export function Navbar() {
       <div className="hidden lg:block lg:absolute lg:w-[30%] ">
         <Profile/>
       </div>
-      <div className="fixed px-[1rem] w-[100%] navbar bg-white z-10">
+      <div className="fixed px-[1rem] w-[100%] navbar bg-[#f8b857] z-10">
         <div className="flex items-center justify-between">
           <div className="lg:w-[100vw] lg:flex lg:flex-col lg:items-center">
             <Link to="/">
-            <img src={logo} alt="logo" className="w-[40%] lg:w-[300px]"/>
+            <img src={logo} alt="logo" className="w-[40%] m-[-1rem] lg:w-[300px]"/>
           </Link>
           </div>
           <div className="flex justify-between lg:hidden">

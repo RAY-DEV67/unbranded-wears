@@ -43,7 +43,7 @@ function App() {
   console.log(productcolor)
 
   return (
-    <div className="App bodyFont">
+    <div className="App bodyFont bg-[#f8b857]">
    <ShowCart.Provider value={showcart}>
         <SetShowCart.Provider value={setshowcart}>
           <SetLoadCart.Provider value={setloadCart}>
