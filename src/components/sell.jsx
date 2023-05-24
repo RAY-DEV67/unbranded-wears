@@ -223,20 +223,11 @@ export function AddProduct() {
                   <p
                     onClick={() => {
                       setcategories(false);
-                      setcategory("Fusion Bags");
+                      setcategory("Unbranded Wears");
                     }}
                     className="w-[100%] text-center pb-[0.5rem]"
                   >
-                    Fusion Bags
-                  </p>
-                  <p
-                    onClick={() => {
-                      setcategories(false);
-                      setcategory("Fusion Shoes");
-                    }}
-                    className="border-b-[2px] border-t-[2px] w-[100%] text-center py-[0.5rem]"
-                  >
-                   Fusion Shoes
+                    Unbranded Wears
                   </p>
                 </div>
               ) : (
@@ -273,39 +264,6 @@ export function AddProduct() {
                       }}
                     />
                   </div>
-
-                   <div>
-                    <input
-                      className="mt-[1rem]"
-                      type="file"
-                      name="photos3"
-                      onChange={(event) => {
-                        setfile3(event.target.files[0]);
-                      }}
-                    />
-                  </div> 
-                  
-                  <div>
-                    <input
-                      className="mt-[1rem]"
-                      type="file"
-                      name="photos4"
-                      onChange={(event) => {
-                        setfile4(event.target.files[0]);
-                      }}
-                    />
-                  </div> 
-                  
-                   <div>
-                    <input
-                      className="mt-[1rem]"
-                      type="file"
-                      name="photos5"
-                      onChange={(event) => {
-                        setfile5(event.target.files[0]);
-                      }}
-                    />
-                  </div> 
                 </div>
                 <p className="text-[12px] mt-[1rem]">
                   Each picture must not exceed 5MB
@@ -326,59 +284,7 @@ export function AddProduct() {
                 // {...register("title")}
               />
               {errors.title && <p className="error">{errors.title}</p>}
-              <input
-                className="mt-[1rem] py-[0.5rem] rounded-[10px] px-[1rem]"
-                type="text"
-                placeholder="color 1"
-                name="color1"
-                onChange={(e) => {setcolor(e.target.value)}}
-                // value={values.title}
-                // {...register("title")}
-              />
-
-<input
-                className="mt-[1rem] py-[0.5rem] rounded-[10px] px-[1rem]"
-                type="text"
-                placeholder="color 2"
-                name="color2"
-                onChange={(e) => {setcolor2(e.target.value)}}
-                // value={values.title}
-                // {...register("title")}
-              />
-
               
-<input
-                className="mt-[1rem] py-[0.5rem] rounded-[10px] px-[1rem]"
-                type="text"
-                placeholder="color 3"
-                name="color3"
-                onChange={(e) => {setcolor3(e.target.value)}}
-                // value={values.title}
-                // {...register("title")}
-              />
-
-              
-<input
-                className="mt-[1rem] py-[0.5rem] rounded-[10px] px-[1rem]"
-                type="text"
-                placeholder="color 4"
-                name="color4"
-                onChange={(e) => {setcolor4(e.target.value)}}
-                // value={values.title}
-                // {...register("title")}
-              />
-
-              
-<input
-                className="mt-[1rem] py-[0.5rem] rounded-[10px] px-[1rem]"
-                type="text"
-                placeholder="color 5"
-                name="color5"
-                onChange={(e) => {setcolor5(e.target.value)}}
-                // value={values.title}
-                // {...register("title")}
-              />
-
               <textarea
                 rows="4"
                 cols="50"
@@ -391,18 +297,7 @@ export function AddProduct() {
               />
               {errors.description && <p className="error">{errors.description}</p>}
 
-              <h2 className="mt-[1rem]">Anniversary Sales?</h2>
-              <div>
-                <input
-                  type="checkbox"
-                  id="Highlight"
-                  name="Highlight"
-                  className="mr-[0.5rem]"
-                  onChange={setHigh}
-                />
-                <label for="MIN">YES</label>
-              </div>
-
+              
               <div className="relative">
                 <input
                   className="mt-[1rem] py-[0.5rem] rounded-[10px] px-[3rem] w-[100%]"
