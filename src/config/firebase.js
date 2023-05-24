@@ -17,13 +17,14 @@ import "firebase/compat/storage"
 
 // Your web app's Firebase configuration
 const firebaseApp = firebase.initializeApp( {
-    apiKey: "AIzaSyCnJH3QI_fekMqNMDm5zrpZO7brTC-0pi0",
-    authDomain: "fusion2-394a6.firebaseapp.com",
-    projectId: "fusion2-394a6",
-    storageBucket: "fusion2-394a6.appspot.com",
-    messagingSenderId: "764509347619",
-    appId: "1:764509347619:web:ba7e0dae4938ed9418b696"
-  });
+  apiKey: "AIzaSyDqZQXsFYfA-cqMW_es6jW0YODd2gjS95M",
+  authDomain: "unbranded-2e6a3.firebaseapp.com",
+  projectId: "unbranded-2e6a3",
+  storageBucket: "unbranded-2e6a3.appspot.com",
+  messagingSenderId: "557358946583",
+  appId: "1:557358946583:web:0daa786c5d3a1061af7f52",
+  measurementId: "G-QLE4DDNHZ5"
+});
 
 // Initialize Firebase
 const app = firebaseApp;
